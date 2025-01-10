@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Files</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: green;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: black;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: blue;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .search-container {
+            width: 300px;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid white;
+            border-radius: 5px;
+        }
+
+        .file-list {
+            width: 80%;
+            margin: 20px auto;
+            list-style: none;
+            padding: 0;
+        }
+
+        .file-list li {
+            padding: 10px;
+            background-color: #fff;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Search files</h1>
+    <div class="search-container">
+        <form method="get">
+            <input type="text" name="ok" value="{{ search_query }}" placeholder="Search files...">
+        </form>
+
+    </div>
+    <ul class="file-list">
+        {% for file in page_obj %}
+            <li>{{ file.name }}</li>
+        {% endfor %}
+    </ul>
+
+    <div>
+        <a href="{% url 'add_file' %}">Add new file</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File manager</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: green;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+            color: black;
+        }
+
+        .header {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: blue;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .image-container img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.1);
+        }
+
+        .button {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.5em;
+            cursor: pointer;
+            width: 200px;
+            margin: 10px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+        }
+
+        .button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Welcome to File Manager</div>
+
+
+    <div class="image-container">
+        <img src="https://shorturl.at/ycjDX" alt="Image 1">
+        <img src="https://shorturl.at/vysUN" alt="Image 2">
+        <img src="https://shorturl.at/iz7Y0" alt="Image 3">
+        <img src="https://shorturl.at/kAJMf" alt="Image 4">
+    </div>
+
+
+    <div>
+        <a href="{% url 'add_file' %}">
+            <button class="button">Add file</button>
+        </a>
+        <a href="{% url 'search_file' %}">
+            <button class="button">Search files</button>
+        </a>
+    </div>
+    
+</body>
+</html>
